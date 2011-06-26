@@ -4,7 +4,8 @@ import sys, os
 import pycurl, json  
 import MySQLdb
 
-STREAM_URL = "http://stream.twitter.com/1/statuses/filter.json?locations=-122.75,36.8,-121.75,37.8"
+loc = "-125,25,-66,50" # continental USA
+STREAM_URL = "http://stream.twitter.com/1/statuses/filter.json?locations="+loc
   
 USER = os.environ["GUSER"]
 PASS = os.environ["GPASS"]
@@ -22,8 +23,9 @@ class Client:
     self.conn.setopt(pycurl.URL, STREAM_URL)  
     self.conn.setopt(pycurl.WRITEFUNCTION, self.on_receive)  
 
-    self.conn.perform()  
+    self.conn.perform()
     # ? not reached ?
+    print "Connection done."
 
   def on_receive(self, data):  
     self.buffer += data  
@@ -40,7 +42,7 @@ class Client:
 def main():
     client = Client()  
     # ? not reached ?
-    sys.exit(0)
+    print "Client finished."
 
 if __name__ == '__main__':
     main()
