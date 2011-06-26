@@ -10,12 +10,13 @@ def main():
     db = MySQLdb.connect(host="localhost", user=USER,
                   passwd=PASS,db="firebrowse")  
     c = db.cursor()
-    c.execute("""SELECT tweet from tweet LIMIT 100""")
-    v = c.fetchone()
+    c.execute("""SELECT tweet FROM tweet LIMIT 100""")
     print """Content-type: text/json
 
 """
-    print v
+    for i in range(10):
+        v = c.fetchone()
+        print v
     
 if __name__ == '__main__':
     main()
