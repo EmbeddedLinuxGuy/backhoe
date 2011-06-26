@@ -16,7 +16,7 @@ def main():
 """
     for i in range(10):
         v = c.fetchone()
-        print v
+        print v[0].strip()
     
 if __name__ == '__main__':
     main()
