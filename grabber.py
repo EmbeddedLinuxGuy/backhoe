@@ -26,12 +26,10 @@ class Client:
       print content
       self.count = self.count + 1
       if self.count > 0:
-          print "Finit!"
           sys.exit(0)
   
 def main():
     print """Content-type: text/json
-
 
 """
     client = Client()  
