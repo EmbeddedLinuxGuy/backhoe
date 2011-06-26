@@ -1,0 +1,1 @@
+create table tweet(id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, tweet VARCHAR(4095), cur_timestamp TIMESTAMP DEFAULT NOW());
