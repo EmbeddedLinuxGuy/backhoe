@@ -30,7 +30,7 @@ class Client:
   def on_receive(self, data):  
     self.buffer += data  
     if data.endswith("\r\n") and self.buffer.strip():
-      self.c.execute("""INSERT INTO tweets (tweet) VALUES (%s)""", (self.buffer,))
+      self.c.execute("""INSERT INTO tweet (tweet) VALUES (%s)""", (self.buffer,))
 #      content = json.loads(self.buffer)  
       self.buffer = ""  
       self.count = self.count + 1

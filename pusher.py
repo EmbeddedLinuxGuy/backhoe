@@ -10,11 +10,11 @@ def main():
     db = MySQLdb.connect(host="localhost", user=USER,
                   passwd=PASS,db="firebrowse")  
     c = db.cursor()
-    c.execute("""SELECT MAX(id) AS id FROM tweets""")
+    c.execute("""SELECT MAX(id) AS id FROM tweet""")
     theid = c.fetchone()[0]
     theid -= 100
 
-    c.execute("""SELECT tweet FROM tweets WHERE id >= %s LIMIT 100""", (theid,))
+    c.execute("""SELECT tweet FROM tweet WHERE id >= %s LIMIT 100""", (theid,))
     print """Content-type: text/json
 
 """
