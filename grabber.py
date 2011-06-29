@@ -19,6 +19,7 @@ class Client:
     self.c = self.db.cursor()
     self.max = 1000
     self.min = 1000
+    self.inserts = 0
 
     self.conn = pycurl.Curl()  
     self.conn.setopt(pycurl.USERPWD, "%s:%s" % (USER, PASS))  
